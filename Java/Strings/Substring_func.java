@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class Substring_func {
+class Substring_func {
     public static String Substring(String str, int si, int ei){
         String substr = "";
         for (int i=si; i<ei; i++){

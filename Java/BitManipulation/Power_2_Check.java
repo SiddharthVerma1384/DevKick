@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Power_2_Check {
+class Power_2_Check {
     public static boolean Is_PowerOf_2(int n){
         int BitMark = n & (n-1);
         if (BitMark == 0) {

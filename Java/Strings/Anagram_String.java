@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class Anagram_String{
+class Anagram_String{
     public static void Is_Anagram(String str1, String str2){
         boolean result;
         if (str1.length() == str2.length()){

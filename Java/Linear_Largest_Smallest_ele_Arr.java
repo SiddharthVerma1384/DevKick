@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Linear_Largest_Smallest_ele_Arr{
+class Linear_Largest_Smallest_ele_Arr{
     public static int Get_Largest(int arr[]){
         int largest = Integer.MIN_VALUE;
         for(int i =0;i<arr.length;i++){

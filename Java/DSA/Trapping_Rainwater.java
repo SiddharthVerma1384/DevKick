@@ -1,6 +1,6 @@
-package DSA;
+
 import java.util.*;
-public class Trapping_Rainwater{
+class Trapping_Rainwater{
     public static int Trapped_Rainwater(int height[]){
         //calculate left maximum - array (Checking for the presence of left boundary for current bar)
         int left_max[] = new int[height.length];

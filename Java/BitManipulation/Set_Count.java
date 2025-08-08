@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Set_Count {
+class Set_Count {
     public static int Set_Bit_Counter(int n){
         int count = 0;
         while (n > 0){

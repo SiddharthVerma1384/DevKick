@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Swap_Using_BitMan{
+class Swap_Using_BitMan{
     public static void Swap(int a, int b){
         a = a ^ b;
         b = a ^ b;

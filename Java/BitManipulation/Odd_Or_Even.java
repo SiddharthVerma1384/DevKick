@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Odd_Or_Even {
+class Odd_Or_Even {
     public static void OddEven_check_Bit_perform(int num){
         int Bitmask = 1;
         if ((num & Bitmask) == 1){

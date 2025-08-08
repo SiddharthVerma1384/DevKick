@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Menu_Linear_Search{
+class Menu_Linear_Search{
     public static int Search_Food(String Food[] ,String choice){
         for(int i = 0;i<Food.length;i++){
             if (Food[i].equals(choice)){

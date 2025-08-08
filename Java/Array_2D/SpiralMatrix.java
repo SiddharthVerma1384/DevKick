@@ -1,6 +1,6 @@
-package Array_2D;
+
 import java.util.*;
-public class SpiralMatrix{
+class SpiralMatrix{
     public static void Spiral_Matrix(int arr[][]){
         int startRow = 0, startCol = 0, endRow = arr.length-1, endCol = arr[0].length-1;
 

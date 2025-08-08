@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class Palindrome_String{
+class Palindrome_String{
     public static boolean Is_Palindrome(String str){
         for (int i=0; i<str.length()/2; i++){
             if(str.charAt(i) != str.charAt(str.length()-i-1)){

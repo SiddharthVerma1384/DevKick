@@ -1,6 +1,6 @@
-package Array_2D;
+
 import java.util.*;
-public class StairCase_Searching{
+class StairCase_Searching{
     public static boolean Staircase_Search(int arr[][] , int key){
         int row = arr.length -1, coloumn = 0;
         while(row>=0 && coloumn<arr[0].length){

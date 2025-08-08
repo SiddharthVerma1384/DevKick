@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Sum_Digits{
+class Sum_Digits{
     public static int Sum_Digits(int num){
         int sum = 0;
         while (num>0){

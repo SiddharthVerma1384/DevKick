@@ -1,6 +1,6 @@
-package Array_2D;
+
 import java.util.*;
-public class Largest_n_Smallest_Elmnt{
+class Largest_n_Smallest_Elmnt{
     public static void Large_n_Small(int arr[][]){
         int largest = Integer.MIN_VALUE;
         int smallest = Integer.MAX_VALUE;

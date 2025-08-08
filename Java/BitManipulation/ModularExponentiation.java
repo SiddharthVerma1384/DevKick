@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class ModularExponentiation {
+class ModularExponentiation {
     public static long Modular_Exponentiation(long a, long n, long mod){
         a = a % mod;
         long ans = 1;

@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class String_Compression {
+class String_Compression {
     public static String Str_Comp(String str){
         StringBuilder sb = new StringBuilder("");
         for(int i=0; i<str.length(); i++){

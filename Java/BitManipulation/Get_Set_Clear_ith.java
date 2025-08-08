@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Get_Set_Clear_ith {
+class Get_Set_Clear_ith {
     
     public static int Get_ith(int n, int i){
         int BitMask = 1<<i;

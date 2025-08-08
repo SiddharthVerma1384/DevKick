@@ -1,6 +1,6 @@
-package Patterns;
+
 import java.util.*;
-public class Advanced_Pattern{
+class Advanced_Pattern{
     public static void Hollow_Rectangle(int n){
         for(int i=1;i<=n;i++){
             for(int j=1;j<=n;j++){

@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class Compass_find_Dirn{
+class Compass_find_Dirn{
     public static float Short_Dist(String dir){
         int x=0, y=0;
         for (int i=0; i<dir.length(); i++){

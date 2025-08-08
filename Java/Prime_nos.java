@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Prime_nos{
+class Prime_nos{
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
         System.out.print("Enter a number : ");

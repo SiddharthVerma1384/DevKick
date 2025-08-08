@@ -1,6 +1,6 @@
-package Array_2D;
+
 import java.util.*;
-public class AlphaCodingWorks{
+class AlphaCodingWorks{
     public static int Count_Key_Elmnt(int arr[][] , int key){
         int n = arr.length, m = arr[0].length;
         int count = 0;

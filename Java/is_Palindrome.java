@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class is_Palindrome{
+class is_Palindrome{
     public static boolean is_Palindrome(int num){
         int rev = 0;
         int palindrome = num;

@@ -1,11 +1,11 @@
-package Java;
+
 /*
  * NAME :- SIDDHARTH VERMA
  * REG N0.:- 24BCB0118
  */
 
 import java.util.*;
-public class Binary_Search{
+class Binary_Search{
     public static int Bin_Search(int arr[] ,int key){
         Arrays.sort(arr);  // Sort the array as binary search is only applicable for Sorted array
         int start = 0 , end = arr.length - 1;

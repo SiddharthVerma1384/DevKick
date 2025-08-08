@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Bin_To_Dec_To_Bin{
+class Bin_To_Dec_To_Bin{
     public static int Bin_To_Dec(int bin){
         int last_digit = 0;
         int dec = 0;

@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Update_ith {
+class Update_ith {
     public static int Update_ith(int n, int i,int val){
         n = n & (~(1<<i));  //clear the ith bit on which operation is going to happen
         int BitMask = val << i; //brings the bit to be inserted to the cleared space

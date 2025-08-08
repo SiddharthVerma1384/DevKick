@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class PrintSubArray{
+class PrintSubArray{
     public static void Print_Sub_array(int arr[]){
         int total_pair = 0;
         for (int i = 0;i<arr.length;i++){

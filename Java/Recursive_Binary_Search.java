@@ -1,7 +1,7 @@
-package Java;
+
 import java.util.*;
 
-public class Recursive_Binary_Search {
+class Recursive_Binary_Search {
     public static int Recursive_Bin_Search(int arr[], int start, int end, int key) {
         Arrays.sort(arr);
         if (start > end) {

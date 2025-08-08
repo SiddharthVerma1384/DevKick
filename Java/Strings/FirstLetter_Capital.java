@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class FirstLetter_Capital {
+class FirstLetter_Capital {
     public static String ToUpperCase(String str){
         StringBuilder sb = new StringBuilder("");
         sb.append(Character.toUpperCase(str.charAt(0)));

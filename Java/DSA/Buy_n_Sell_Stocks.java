@@ -1,6 +1,6 @@
-package DSA;
+
 import java.util.*;
-public class Buy_n_Sell_Stocks{
+class Buy_n_Sell_Stocks{
     public static int MAX_PROFIT(int prices[]){
         int BuyPrice = Integer.MAX_VALUE;
         int MaxProfit = 0;

@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class PrintMaxAndMinSumOfSubArray{
+class PrintMaxAndMinSumOfSubArray{
     public static void Max_n_Min(int arr[]){
         int largest = Integer.MIN_VALUE;
         int smallest = Integer.MAX_VALUE;

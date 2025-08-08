@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class FastExponentiation {
+class FastExponentiation {
     public static int Fast_Exponentiation(int a, int n){
         int ans = 1;
         while (n > 0){

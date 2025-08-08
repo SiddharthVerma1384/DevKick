@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class UserChoiceAdd{
+class UserChoiceAdd{
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
         int EvenSum = 0, OddSum = 0,choice;

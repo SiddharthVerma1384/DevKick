@@ -1,6 +1,6 @@
-package Strings;
+
 import java.util.*;
-public class Vowel_counter {
+class Vowel_counter {
     public static int VowelCount(String str){
         int count = 0;
         str = str.toLowerCase();

@@ -1,6 +1,6 @@
-package Patterns;
+
 import java.util.*;
-public class Simple_Pattern{
+class Simple_Pattern{
     public static void Star_Pattern(int n){
 
         for(int i = 1;i<=n;i++){

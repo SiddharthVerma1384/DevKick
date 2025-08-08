@@ -1,11 +1,11 @@
-package Java;
+
 /*
  * NAME :- SIDDHARTH VERMA
  * REG N0.:- 24BCB0118
  */
 
  import java.util.*;
- public class Linear_Search {
+ class Linear_Search {
     public static int LinearSearch(int arr[] , int val){
         for(int i=0; i<arr.length; i++){
             if (arr[i] == val){

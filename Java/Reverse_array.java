@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Reverse_array{
+class Reverse_array{
     public static void Reversed_array(int arr[]){
         int start = 0,end = arr.length - 1;
         while (start < end){

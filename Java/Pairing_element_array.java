@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.*;
-public class Pairing_element_array{
+class Pairing_element_array{
     public static void Pairing_ele_print(int arr[]){
         int total_pairs = 0;
         for (int i = 0;i<arr.length;i++){

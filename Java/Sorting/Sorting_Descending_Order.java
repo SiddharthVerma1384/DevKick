@@ -1,6 +1,6 @@
-package Sorting;
+
 import java.util.*;
-public class Sorting_Descending_Order{
+class Sorting_Descending_Order{
     public static void Bubble_Sort(int arr[]){
         int n = arr.length;
         for (int i=0 ; i<n-1 ; i++){

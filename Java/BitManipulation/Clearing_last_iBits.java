@@ -1,6 +1,6 @@
-package BitManipulation;
+
 import java.util.*;
-public class Clearing_last_iBits {
+class Clearing_last_iBits {
     public static int Clear_last_iBits(int n, int i){
         int BitMask = (~0) << i; //using ~0 == 11111 and shifting it till the parts to be cleared and the parts to be cleared will have 0000 beneath it
         return n & BitMask;// performing to clear the follow up values

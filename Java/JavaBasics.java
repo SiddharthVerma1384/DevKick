@@ -1,6 +1,6 @@
-package Java;
+
 import java.util.Scanner;
-public class JavaBasics {
+class JavaBasics {
     static int getPrecedence(char op) {
         switch (op) {
             case '^': return 3;
