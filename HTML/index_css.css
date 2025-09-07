@@ -25,14 +25,17 @@ body{
 }
 
 div{
-    text-align: center;
+    /* text-align: center; */
     width : 20%;
     height : 20%;
 }
 /*Before */
 
 #box1{
-    background: aqua;    
+    background: aqua; 
+    display: flex; /* Without this the align-items and justify-content wont work */
+    align-items: center;  /*Vertical se centre mai laega*/
+    justify-content: center;   
 }
 #box2{
     background: violet;
