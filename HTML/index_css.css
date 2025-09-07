@@ -7,38 +7,31 @@ html,body{
     height : 100%;
     width : 100%;
 }
-
-h1{
-    background-color: aquamarine;
-    margin : 0%;
-    padding: 0%;
-    width : 50%;
-    color: rgb(121, 80, 31);
-}
-
 body{
     
     background-color: white;
-    display: flex; /*Without this the align-items and justify-content wont work*/
-    align-items: center;  /*Vertical se centre mai laega*/
-    justify-content: center;/*Horizontal se centre mai laega*/
+    
+    
+}
+main{
+    display: flex;
 }
 
-div{
-    /* text-align: center; */
-    width : 20%;
-    height : 20%;
+div{   
+    width: 200px;
+    height: 200px;    
 }
 /*Before */
 
 #box1{
-    background: aqua; 
-    display: flex; /* Without this the align-items and justify-content wont work */
-    align-items: center;  /*Vertical se centre mai laega*/
-    justify-content: center;   
+    background-color: aqua;
+
 }
 #box2{
-    background: violet;
+    background-color: violet;
+}
+#box3{
+    background-color: brown;
 }
 
 /*This seperation of boxes will add extra access to the divs and compiler dint get confused*/
