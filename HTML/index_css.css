@@ -17,10 +17,15 @@ h1{
 }
 
 body{
+    
     background-color: white;
+    display: flex; /*Without this the align-items and justify-content wont work*/
+    align-items: center;  /*Vertical se centre mai laega*/
+    justify-content: center;/*Horizontal se centre mai laega*/
 }
 
 div{
+    text-align: center;
     width : 20%;
     height : 20%;
 }
