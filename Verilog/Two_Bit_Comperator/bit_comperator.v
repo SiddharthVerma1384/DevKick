@@ -5,7 +5,7 @@ module bit_comperator(input [1:0]A, input [1:0]B, output W,X,Y);
   assign t3 = ~(B[0]);
   assign t4 = ~(A[0]);
   assign W = ((A[1] & t1) | (~(A[1] ^ B[1])&(A[0] & t3))) ;
-  assign X = ~(A[1] ^ B[1]);
+  assign X = (~(A[1] ^ B[1]) & ~(A[0] ^ B[0]));
   assign Y = ((t2 & B[1]) | (~(A[1] ^ B[1])&(t4 & B[0]))) ;
 endmodule
 
