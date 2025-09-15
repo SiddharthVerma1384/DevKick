@@ -1,0 +1,12 @@
+# Ignore RStudio project files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore nested long folder
+R/
