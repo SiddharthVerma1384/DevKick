@@ -1,12 +1,23 @@
 package DSA_VIT.Linked_List;
 
-public class LinkedList {
+public class SinglyLinkedList {
     private Node head;
     private Node tail;
     private int size;
 
-    private LinkedList(){
+    private SinglyLinkedList(){
         this.size = 0;
+    }
+
+    public Node find(int value){
+        Node node = head;
+        while (node != null){
+            if (node.value == value){
+                return node;
+            }
+            node = node.next;
+        }
+        return node;
     }
 
     public Node getNode(int index){
@@ -104,7 +115,7 @@ public class LinkedList {
         }
     }
     public static void main(String args[]){
-        LinkedList list = new LinkedList();
+        SinglyLinkedList list = new SinglyLinkedList();
         list.Insert_First(3);
         list.Insert_First(7);
         list.Insert_First(9);
@@ -119,8 +130,6 @@ public class LinkedList {
         System.out.println(list.DeleteLast());
         list.display();
         System.out.println(list.Delete(2));
-        list.display();
-
         list.display();
     }
 }
