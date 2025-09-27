@@ -22,7 +22,7 @@ public class DoublyLinkedList {
         if (head != null){
             head.prev = node;
         }
-        node = head;
+        head = node;
     }
 
     public void InsertLast(int val){
@@ -31,7 +31,7 @@ public class DoublyLinkedList {
 
         if (head == null){
             node.prev = null;
-            node = head;
+            head = node;
             return ;
         }
 
@@ -70,7 +70,7 @@ public class DoublyLinkedList {
         }
         System.out.println("END");
         System.out.println("Printing the list in Reverse Order :-");
-        
+
         while (last != null){
             System.out.print(last.value + " -> ");
             last = last.prev;
