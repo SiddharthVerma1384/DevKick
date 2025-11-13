@@ -39,25 +39,6 @@ KDNode* insertKD(KDNode* root, Driver d, unsigned depth = 0) {
     return root;
 }
 
-void nearestNeighbor(KDNode* root, double px, double py, Driver &best, double &bestDist,
-                     unsigned depth = 0) {
-    if (!root) return;
-    double d = dist(px, py, root->driver.x, root->driver.y);
-    if (d < bestDist) {
-        bestDist = d;
-        best = root->driver;
-    }
-    unsigned cd = depth % 2;
-    KDNode* next = (cd == 0 && px < root->driver.x) || (cd == 1 && py < root->driver.y)
-                       ? root->left
-                       : root->right;
-    KDNode* other = next == root->left ? root->right : root->left;
-    nearestNeighbor(next, px, py, best, bestDist, depth + 1);
-    if ((cd == 0 && fabs(px - root->driver.x) < bestDist) ||
-        (cd == 1 && fabs(py - root->driver.y) < bestDist))
-        nearestNeighbor(other, px, py, best, bestDist, depth + 1);
-}
-
 /* ------------------- Fenwick Tree (for demand/supply zones) ------------------- */
 struct FenwickTree {
     vector<int> bit;
@@ -161,23 +142,17 @@ int main() {
         {"Priya", "Standard", 5, 7, 4.5}
     };
 
-    // KD Tree creation
-    KDNode* root = nullptr;
-    for (auto &d : drivers)
-        root = insertKD(root, d);
-
     double px, py, dx, dy;
     cout << "Enter Pickup Location (x y): ";
     cin >> px >> py;
     cout << "Enter Drop Location (x y): ";
     cin >> dx >> dy;
 
-    // Ask user which ride type they want
     string rideType;
     cout << "\nSelect Ride Type (Standard / Premium / Pool): ";
     cin >> rideType;
 
-    // Find nearest driver of that type
+    // Find nearest driver
     Driver best;
     double bestDist = 1e9;
     bool found = false;
@@ -202,19 +177,14 @@ int main() {
          << " | Rating: " << best.rating
          << " | Distance: " << bestDist << " km\n";
 
-    // Demand-Supply (random for simulation)
-    zoneData[1] = {10, 5}; // demand=10, supply=5
+    // Surge and fare
+    zoneData[1] = {10, 5};
     double surge = calculateSurgeMultiplier(1);
-
     double rideDistance = dist(px, py, dx, dy);
     double fare = calculateFare(rideDistance, best.category, surge);
     double eta = bestDist * 2 + (rand() % 5 + 3);
 
-    cout << "\nEstimated Time of Arrival (ETA): " << eta << " mins";
-    cout << "\nEstimated Ride Distance: " << rideDistance << " km";
-    cout << "\nSurge Multiplier: " << surge << "x";
-    cout << "\nEstimated Fare: Rs " << fare << "\n";
-
+    cout << "\nETA: " << eta << " mins | Fare: Rs " << fare << " | Surge: " << surge << "x\n";
     cout << "\nConfirm Ride? (y/n): ";
     char confirm;
     cin >> confirm;
@@ -225,118 +195,66 @@ int main() {
 
     cout << "\nRide Confirmed! Driver " << best.name << " is on the way...\n";
 
-    // --- Bellman-Ford Simulation (Shortest path from driver to pickup) ---
-    cout << "\nComputing shortest route from driver to pickup using Bellman-Ford...\n";
-
-    // Create simple 4-node road network based on coordinates
-// Node 0 = Driver, Node 3 = Pickup
-    struct NodeCoord { double x, y; };
-    vector<NodeCoord> nodes = {
-        {best.x, best.y},                   // 0 = Driver
-        { (best.x + px) / 2, (best.y + py) / 2 },  // 1 = Midpoint
-        { (best.x + px) / 2 + 1, (best.y + py) / 2 - 1 }, // 2 = Alternate route
-        {px, py}                            // 3 = Pickup
-    };
-
-    // Create edges based on Euclidean distances
-    vector<Edge> edges = {
-        {0, 1, dist(nodes[0].x, nodes[0].y, nodes[1].x, nodes[1].y)},
-        {0, 2, dist(nodes[0].x, nodes[0].y, nodes[2].x, nodes[2].y)},
-        {1, 2, dist(nodes[1].x, nodes[1].y, nodes[2].x, nodes[2].y)},
-        {1, 3, dist(nodes[1].x, nodes[1].y, nodes[3].x, nodes[3].y)},
-        {2, 3, dist(nodes[2].x, nodes[2].y, nodes[3].x, nodes[3].y)}
-    };
-
-    bellmanFord(4, edges, 0);
-
-
-    cout << "\nOptimal route calculated. Driver is heading to pickup...\n\n";
-
-    // Random event: simulate cancellation
+    // Simulate random event
     int event = rand() % 3; // 0 = normal, 1 = driver cancels, 2 = passenger cancels
 
     if (event == 1) {
-        cout << "\nDriver " << best.name << " cancelled the ride!\n";
-        cout << "Reassigning you the next best driver...\n";
-
-        priority_queue<Candidate, vector<Candidate>, greater<Candidate>> pq;
-        for (auto &d : drivers) {
-            if (d.name != best.name) {
-                double etaNew = dist(px, py, d.x, d.y) * 2 + (rand() % 3 + 2);
-                pq.push({d.name, etaNew, d.rating});
-            }
-        }
-        Candidate newDriver = pq.top();
-        pq.pop();
-
-        cout << "New Driver Assigned: " << newDriver.driver
-             << " | ETA: " << newDriver.eta << " mins | Rating: " << newDriver.rating << "\n";
-    }
-        else if (event == 2) {
-        cout << "\nPassenger cancelled the ride midway.\n";
-        cout << "Notifying driver " << best.name << "...\n";
+        cout << "\nDriver " << best.name << " cancelled the ride!\nReassigning...\n";
+    } else if (event == 2) {
+        cout << "\nPassenger cancelled the ride midway.\nNotifying driver...\n";
 
         char rebook;
         cout << "\nWould you like to book another ride? (y/n): ";
         cin >> rebook;
 
         if (rebook == 'y' || rebook == 'Y') {
-            cout << "\nRebooking a new ride...\n";
-
-            // Penalty for midway cancellation
-            double penalty = max(50.0, fare * 0.1); // ₹50 or 10% of fare, whichever is higher
-            cout << "Penalty for midway cancellation: Rs " << penalty << "\n";
-
-            // Find another available driver (excluding the previous one)
-            Driver newDriver;
-            double newBestDist = 1e9;
-            bool newFound = false;
-
-            for (auto &d : drivers) {
-                if (d.name != best.name && d.category == rideType) {
-                    double distance = dist(px, py, d.x, d.y);
-                    if (distance < newBestDist) {
-                        newDriver = d;
-                        newBestDist = distance;
-                        newFound = true;
-                    }
-                }
-            }
-
-            if (!newFound) {
-                cout << "\nNo alternate drivers available at the moment. Please try later.\n";
-                return 0;
-            }
-
-            double newSurge = calculateSurgeMultiplier(1);
-            double newFare = calculateFare(rideDistance, newDriver.category, newSurge);
-            double newETA = newBestDist * 2 + (rand() % 5 + 3);
-
-            cout << "\nNew Driver Assigned: " << newDriver.name
-                << " | Rating: " << newDriver.rating
-                << " | ETA: " << newETA << " mins\n";
-            cout << "Updated Fare (including penalty): Rs " << newFare + penalty << "\n";
-
-            cout << "\nConfirm this ride? (y/n): ";
-            char confirmNew;
-            cin >> confirmNew;
-
-            if (confirmNew != 'y' && confirmNew != 'Y') {
-                cout << "\nRide cancelled again by passenger.\n";
-                return 0;
-            }
-
-            cout << "\nRide Confirmed! Driver " << newDriver.name << " is on the way...\n";
-            cout << "\nRide completed successfully!\n";
-            cout << "Total fare (with penalty): Rs " << newFare + penalty << "\n";
+            double penalty = max(50.0, fare * 0.1);
+            cout << "\nPenalty applied: Rs " << penalty << "\n";
+            cout << "\nRebooking based on best available driver (rating + ETA)...\n";
         } else {
             cout << "\nNo problem. Ride request closed.\n";
+            return 0;
         }
     }
 
-    else {
-        cout << "\nRide completed successfully!\n";
-        cout << "Total fare charged: Rs " << fare << "\n";
+    if (event == 1 || event == 2) {
+        // Priority queue based on ETA and rating
+        priority_queue<Candidate, vector<Candidate>, greater<Candidate>> pq;
+        for (auto &d : drivers) {
+            if (d.name != best.name && d.category == rideType) {
+                double etaNew = dist(px, py, d.x, d.y) * 2 + (rand() % 3 + 2);
+                pq.push({d.name, etaNew, d.rating});
+            }
+        }
+
+        if (pq.empty()) {
+            cout << "\nNo alternate drivers available.\n";
+            return 0;
+        }
+
+        Candidate newDriver = pq.top();
+        pq.pop();
+
+        double newFare = calculateFare(rideDistance, rideType, surge);
+        if (event == 2) newFare += max(50.0, fare * 0.1); // include penalty if passenger cancelled
+
+        cout << "\nNew Driver Assigned: " << newDriver.driver
+             << " | ETA: " << newDriver.eta << " mins | Rating: " << newDriver.rating
+             << "\nUpdated Fare: Rs " << newFare << "\n";
+
+        cout << "\nConfirm this ride? (y/n): ";
+        char confirmNew;
+        cin >> confirmNew;
+
+        if (confirmNew != 'y' && confirmNew != 'Y') {
+            cout << "\nRide cancelled again by passenger.\n";
+            return 0;
+        }
+
+        cout << "\nRide Confirmed! Driver " << newDriver.driver << " is on the way...\n";
+        cout << "\nRide completed successfully!\nTotal fare charged: Rs " << newFare << "\n";
+    } else {
+        cout << "\nRide completed successfully!\nTotal fare charged: Rs " << fare << "\n";
     }
 
     cout << "\n========= END OF SIMULATION =========\n";
