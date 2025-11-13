@@ -1,4 +1,4 @@
-package Pen_Details;
+package OOPs.ClassesAndObjects;
 import java.util.*;
 class Pen{
     String color;
@@ -15,7 +15,7 @@ class Pen{
         System.out.println("Tip size of the pen is : " + tip);
     }
 }
-public class Pen_details{
+public class Pen_Info{
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
         Pen p1 = new Pen();
