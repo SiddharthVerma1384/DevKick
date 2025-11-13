@@ -8,8 +8,6 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
-#include <thread>
-#include <chrono>
 using namespace std;
 
 /* ------------------- Basic Driver Definition ------------------- */
@@ -141,7 +139,7 @@ void bellmanFord(int V, vector<Edge> &edges, int src) {
 /* ------------------- MAIN SYSTEM ------------------- */
 int main() {
     srand(time(0));
-    cout << "========= RIDE SHARING SYSTEM (Interactive Simulation) =========\n\n";
+    cout << "========= RIDE SHARING SYSTEM =========\n\n";
 
     // Driver setup
     vector<Driver> drivers = {
@@ -149,7 +147,17 @@ int main() {
         {"Ravi", "Standard", 3, 5, 4.6},
         {"John", "Pool", 6, 8, 4.9},
         {"Sam", "Standard", 2, 4, 4.4},
-        {"Nikhil", "Premium", 8, 9, 4.7},
+        {"Nikhil", "Standard", 8, 9, 4.7},
+        {"Divyansh", "Pool", 6, 9, 4.6},
+        {"Amsih", "Premium", 6, 9, 4.7},
+        {"Akash", "Standard", 8, 10, 4.7},
+        {"Amar", "Pool", 22, 77, 4.7},
+        {"Abhishek", "Premium", 4, 8, 5.0},
+        {"Aditya", "Premium", 11, 15, 4.7},
+        {"Yash", "Pool", 1, 2, 3.4},
+        {"Mihir", "Standard", 2, 4, 4.1},
+        {"Priyanshu", "Premium", 8, 9, 4.2},
+        {"Divyakush", "Pool", 5, 9, 4.5},
         {"Priya", "Standard", 5, 7, 4.5}
     };
 
@@ -219,15 +227,30 @@ int main() {
 
     // --- Bellman-Ford Simulation (Shortest path from driver to pickup) ---
     cout << "\nComputing shortest route from driver to pickup using Bellman-Ford...\n";
-    std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    vector<Edge> edges = {
-        {0, 1, 4}, {0, 2, 5}, {1, 2, -3}, {2, 3, 4}
+    // Create simple 4-node road network based on coordinates
+// Node 0 = Driver, Node 3 = Pickup
+    struct NodeCoord { double x, y; };
+    vector<NodeCoord> nodes = {
+        {best.x, best.y},                   // 0 = Driver
+        { (best.x + px) / 2, (best.y + py) / 2 },  // 1 = Midpoint
+        { (best.x + px) / 2 + 1, (best.y + py) / 2 - 1 }, // 2 = Alternate route
+        {px, py}                            // 3 = Pickup
     };
+
+    // Create edges based on Euclidean distances
+    vector<Edge> edges = {
+        {0, 1, dist(nodes[0].x, nodes[0].y, nodes[1].x, nodes[1].y)},
+        {0, 2, dist(nodes[0].x, nodes[0].y, nodes[2].x, nodes[2].y)},
+        {1, 2, dist(nodes[1].x, nodes[1].y, nodes[2].x, nodes[2].y)},
+        {1, 3, dist(nodes[1].x, nodes[1].y, nodes[3].x, nodes[3].y)},
+        {2, 3, dist(nodes[2].x, nodes[2].y, nodes[3].x, nodes[3].y)}
+    };
+
     bellmanFord(4, edges, 0);
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+
+
     cout << "\nOptimal route calculated. Driver is heading to pickup...\n\n";
-    std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // Random event: simulate cancellation
     int event = rand() % 3; // 0 = normal, 1 = driver cancels, 2 = passenger cancels
@@ -249,10 +272,68 @@ int main() {
         cout << "New Driver Assigned: " << newDriver.driver
              << " | ETA: " << newDriver.eta << " mins | Rating: " << newDriver.rating << "\n";
     }
-    else if (event == 2) {
+        else if (event == 2) {
         cout << "\nPassenger cancelled the ride midway.\n";
         cout << "Notifying driver " << best.name << "...\n";
+
+        char rebook;
+        cout << "\nWould you like to book another ride? (y/n): ";
+        cin >> rebook;
+
+        if (rebook == 'y' || rebook == 'Y') {
+            cout << "\nRebooking a new ride...\n";
+
+            // Penalty for midway cancellation
+            double penalty = max(50.0, fare * 0.1); // ₹50 or 10% of fare, whichever is higher
+            cout << "Penalty for midway cancellation: Rs " << penalty << "\n";
+
+            // Find another available driver (excluding the previous one)
+            Driver newDriver;
+            double newBestDist = 1e9;
+            bool newFound = false;
+
+            for (auto &d : drivers) {
+                if (d.name != best.name && d.category == rideType) {
+                    double distance = dist(px, py, d.x, d.y);
+                    if (distance < newBestDist) {
+                        newDriver = d;
+                        newBestDist = distance;
+                        newFound = true;
+                    }
+                }
+            }
+
+            if (!newFound) {
+                cout << "\nNo alternate drivers available at the moment. Please try later.\n";
+                return 0;
+            }
+
+            double newSurge = calculateSurgeMultiplier(1);
+            double newFare = calculateFare(rideDistance, newDriver.category, newSurge);
+            double newETA = newBestDist * 2 + (rand() % 5 + 3);
+
+            cout << "\nNew Driver Assigned: " << newDriver.name
+                << " | Rating: " << newDriver.rating
+                << " | ETA: " << newETA << " mins\n";
+            cout << "Updated Fare (including penalty): Rs " << newFare + penalty << "\n";
+
+            cout << "\nConfirm this ride? (y/n): ";
+            char confirmNew;
+            cin >> confirmNew;
+
+            if (confirmNew != 'y' && confirmNew != 'Y') {
+                cout << "\nRide cancelled again by passenger.\n";
+                return 0;
+            }
+
+            cout << "\nRide Confirmed! Driver " << newDriver.name << " is on the way...\n";
+            cout << "\nRide completed successfully!\n";
+            cout << "Total fare (with penalty): Rs " << newFare + penalty << "\n";
+        } else {
+            cout << "\nNo problem. Ride request closed.\n";
+        }
     }
+
     else {
         cout << "\nRide completed successfully!\n";
         cout << "Total fare charged: Rs " << fare << "\n";
