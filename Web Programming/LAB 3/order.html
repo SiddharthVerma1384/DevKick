@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery | Order</title>
+</head>
+<body>
+    <header>
+        <h1>Place Your Order</h1>
+        <p><a href="home.html">Home</a> | <a href="order.html">Order</a></p>
+    </header>
+    <hr>
+    <div id="details">
+        <h2>Customer Details</h2>
+        <form>
+            <label>Name: <br><input type="text" name="name" id="name"></label><br><br>
+            <label>Email: <br><input type="email" name="mail" id="mail"></label><br><br>
+            <label>Address: <br><textarea rows="4" cols="30"></textarea></label><br><br>
+            <label>Choose Your Dish:<br></label>
+            <select  name="dishes">
+                <option value=""selected disabled hidden>--Choose Your Dish--</option>
+                <option value="pi">Margherita Pizza</option>
+                <option value="bu">Cheese Burger</option>
+                <option value="bi">Hyderabadi Biryani</option>
+            </select><br><br>
+            <label>Choose Quantity: <br><input type="number" min = "0"></label><br><br>
+            <label>Payment Mode:<br></label>
+            <label><input type="radio">Cash on Delivery</label><br>
+            <label><input type="radio">UPI</label><br>
+            <label><input type="radio">Net Banking</label><br><br>
+            <button type="select">Confirm Order</button>
+        </form>
+        <hr>
+    </div>
+
+    <footer>
+        <p>Thanks for choosing QuickBite!</p>
+    </footer>
+</body>
+</html>
