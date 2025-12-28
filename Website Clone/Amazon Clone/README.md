@@ -78,14 +78,7 @@ Example use cases:
 
 #### Visual Explanation
 
-Margin (outer space)
-
-┌─────────────────────────┐
-│ Padding │
-│ ┌──────────────┐ │
-│ │ Content │ │
-│ └──────────────┘ │
-└─────────────────────────┘
+![Margin vs Padding](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_k_CI4-4E3u6fFMmmxCPd-K-v3d1f5yUpHw&s)
 
 ---
 
