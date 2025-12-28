@@ -1,0 +1,227 @@
+/* https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png */
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: beige;
+}
+.header{
+    height:60px;
+    background-color: rgb(19,25,33);
+    color: white;
+}
+
+/* layout */
+.container{
+    height:100%;
+    width:98%;
+    margin: auto;
+}
+.container-header{
+    display: flex; 
+    align-items: center;
+}
+
+/* logo */
+
+.logo-container{
+    height: 50px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    /* overflow: hidden; */
+}
+.logo{
+    height: 50px;
+    width: 100%;
+    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png');
+    background-repeat: no-repeat;
+    background-position: -225px -215px;    
+}
+.dotin{
+    position: relative;
+    margin-top: -4px;
+    margin-left: -25px;
+}
+.white-border{
+    border: 1.5px solid transparent;
+}
+.white-border:hover{
+    border: 1.5px solid #ffffff;
+}
+/*Delivery content*/
+.delivery-container{
+    height: 50px;  /*50 155*/
+    width: 135px;
+    display: flex;
+    align-items: center;
+}
+.del-text{
+    height: auto;
+    width: 87px;
+    color: #ccc;
+    font-size: 0.75rem;
+    padding: 0%;
+    margin-top: -1.8rem;
+    margin-bottom: -5px;
+    margin-right: 8px;
+    margin-left: 45px;
+}
+.location-icon{
+    height: 22px;  
+    width: 22px;
+    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png');
+    background-repeat: no-repeat;
+    background-position: -68px -340px;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    margin-left: -120px;
+}
+.add-text{
+    height: 21px;
+    width: 91px;
+    padding: 0%;
+    font-weight: bolder;
+    margin-right: -30px;
+    margin-bottom: -10px;
+}
+/*Search Bar*/
+.search-container{
+    height: 40px;
+    width: 630px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.search-container:has(.input-search:focus) {
+  box-shadow: 0 0 0 2px orange;
+}
+.search-select-menu{
+    width: 55px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: #eaeaea;
+    color: #7b7b7b;
+    justify-content: center;
+    padding: 5px;
+}
+.search-select-menu:hover{
+    color: black;
+}
+.search-select-menu:focus{
+    box-shadow: 0 0 0 2px orange;
+}
+.input-search{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: large;
+}
+.search-icon{
+    height: 100%;
+    width: 45px;
+    border: 1.5px solid rgb(242, 175, 116);
+    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png');
+    background-repeat: no-repeat;
+    background-color: rgb(242, 175, 116);
+    background-position: -2px -282px;
+}
+.search-icon:hover{
+    background-color: rgb(236, 156, 86);
+}
+.search-icon:focus{
+    border: 2px solid orange;
+}
+
+/* Nationality */
+
+.nationality-container{
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0%;
+    padding-left: 5px;
+    gap: 5px;
+}
+
+.nationality-flag{
+    height: 18px;
+    width: 24px; 
+    padding: 0%;
+}
+.nationality-flag img{
+    width: 100%;
+}
+.nationality-container p{
+    height: 16px;
+    width: 22px;
+    font-weight: bolder;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+}
+
+/*Accounts*/
+.account-container{
+    height: 50px;
+    width: 125px;
+    margin-left: 20px;
+    padding-left: 8px;
+    padding-top: 10px;
+    padding-right: 0px;
+}
+
+/*Return & Order*/
+.orders-container{
+    height: 50px;
+    width: 76px;
+    margin-left: 15px;
+    padding: 5px;
+}
+/*Cart*/
+.cart-container{
+    height: 50px;
+    width: 85px;
+    margin-left: 15px;
+    padding-top: 12px;
+    position: relative;
+}
+.cart-logo{
+    height: 30px;
+    width: 43px;
+    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png');
+    background-repeat: no-repeat;
+    background-position: -218px -337px;
+    margin-bottom: -20px;
+    margin-left: 5px;
+}
+.cart-text{
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-left: 45px;
+    margin-bottom: 80px;
+}
+.cart-num{
+    height: 18px;
+    width: 20px;
+    font-size: 1.2rem;
+    color: orange;
+    font-weight: bolder;
+    top: 2px;
+    left: 22px;
+    position: absolute;
+}
