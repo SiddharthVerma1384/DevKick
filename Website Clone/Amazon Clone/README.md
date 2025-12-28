@@ -6,6 +6,12 @@ The goal of this project is to **understand real-world website structure** and c
 
 ---
 
+## Head 
+
+- link CSS using rel(realationship) , tells browser it is a stylesheet
+- link icon , tells browser that it is favicon
+- give title of the page/website.
+
 ## Header
 
 While building the header section, I learned many important frontend concepts:
