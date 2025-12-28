@@ -100,6 +100,12 @@ These properties help in **proper alignment without using margins**.
 
 Sprite sheets are **large image files containing multiple icons/logos/images**.
 
+#### Sprite Sheet Used 
+
+![Sprite Sheet](https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png)
+
+This is the Sprite Sheet used to access the desired logo
+
 #### Why companies use sprite sheets:
 - Reduces number of network requests
 - Improves performance
