@@ -78,6 +78,13 @@ Example use cases:
 
 #### Visual Explanation
 
+| Margin            |
+| ┌───────────────┐ |
+| | Padding       | |
+| |  ┌─────────┐  | |
+| |  | Content |  | |
+| |  └─────────┘  | |
+| └───────────────┘ |
 
 ---
 
