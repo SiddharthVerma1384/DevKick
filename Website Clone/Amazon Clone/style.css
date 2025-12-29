@@ -225,3 +225,51 @@ html,body{
     left: 22px;
     position: absolute;
 }
+
+/* image slider */
+
+.slider-container{
+    position: relative;
+}
+.image-list{
+    display: flex;
+}
+.image-item{
+    min-width: 100%;
+}
+.image-item img{
+    width: 100%;
+    height: 100%;
+}
+
+/* slider buttons */
+
+.side-arrow-btns-container{
+    position: absolute;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.left-arrow{
+    width: 20px;
+	height: 160px;
+    background: url('https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png');
+    background-repeat: no-repeat;
+    background-position: -7px -16px;
+    background-size: 135px;
+    border: none;
+}
+.right-arrow{
+    width: 20px;
+	height: 160px;
+    background: url('https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png');
+    background-repeat: no-repeat;
+    background-position: -88px -16px;
+    background-size: 110px;
+    border: none;
+}
+ 
