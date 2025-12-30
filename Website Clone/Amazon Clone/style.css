@@ -226,6 +226,73 @@ html,body{
     position: absolute;
 }
 
+/* navigation */
+
+.nav{
+    height: 38px;
+    background-color: rgb(35,47,61);
+    display: flex;
+    align-items: center;
+}
+.nav-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    height: 100%;
+    margin: auto;
+    
+}
+.nav-content ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5px;
+    list-style: none;
+    font-size: 1rem;
+}
+.nav-content ul li a{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px 10px;
+}
+.cont-text{
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+.hamburger{
+    height: 37px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+.hamburger-logo{
+    width: 19px;
+	height: 16px;
+    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png');
+    background-repeat: no-repeat;
+    background-position: -172px -255px;
+}
+.rufus{
+    width: 68px;
+    height: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    border-radius: 20px;
+    background-color: #ffffff;
+    border: none;
+}
+
+
 /* image slider */
 
 .slider-container{
