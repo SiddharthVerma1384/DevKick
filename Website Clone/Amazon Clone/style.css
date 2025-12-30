@@ -262,6 +262,100 @@ html,body{
     display: flex;
     align-items: center;
 }
+
+.fresh-hover-img{
+    background-color: white;
+    height: 450px;
+    width: 388px;
+    position: absolute;
+    z-index: 1;
+    margin-left: -7px;
+
+    opacity: 0;    
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+    transition-delay: 0.2s;
+
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.side-by-side-img{
+    display: flex;
+    gap: 5px;
+}
+.downside-img{
+    margin-top: 5px;
+}
+.fresh-img-list{
+    width: 170px;
+    height: 175px;
+    background-color: #dbdada;
+    padding: 10px;
+}
+.fresh-img-list img{
+    width: 100%;
+    height: 100%;
+}
+
+.fresh-img:hover .fresh-hover-img{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition-delay: 0.2s;
+}
+
+.fresh-img:has(.fresh-hover-img:hover) {
+    border: none;
+}
+.link{
+    margin-top: 20px;
+}
+.fresh-hover-img .link a{
+    width: 100%;
+    height: 30px;
+    color: blue;
+    
+}
+.fresh-hover-img .link a:hover{
+    color: rgb(15, 15, 76);
+    text-decoration: underline;
+}
+
+.business-flyout{
+    height: 300px;
+    width: 522px;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+    transition-delay: 0.2s;
+
+    padding: 5px 10px;
+}
+.business-flyout img{
+    height: 100%;
+    width: 100%;
+}
+.business-flyout-cont:hover .business-flyout{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition-delay: 0.2s;
+}
+.business-flyout-cont:has(.business-flyout){
+    border: none;
+}
+
 .hamburger{
     height: 37px;
     width: 60px;
@@ -281,7 +375,7 @@ html,body{
 }
 .rufus{
     width: 68px;
-    height: 30px;
+    height: 23px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -291,6 +385,11 @@ html,body{
     background-color: #ffffff;
     border: none;
 }
+.rufus:focus{
+    box-shadow: 0 0 0 2px orange;
+}
+
+
 
 
 /* image slider */
