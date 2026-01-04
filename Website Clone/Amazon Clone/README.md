@@ -45,9 +45,9 @@ The goal of this project was to replicate a complex, real-world e-commerce inter
 ### Sprite Sheets Used
 
 <p align="center">
-  <img src="https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png" width="120" style="margin-right:6px;" />
-  <img src="https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png" width="120" style="margin-right:6px;" />
-  <img src="https://m.media-amazon.com/images/S/sash/x6ok$LYiGGUKJXl.png" width="120" style="margin-right:6px;" />
+  <img src="https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-reorg-privacy._CB546381437_.png" width="120" style="margin-right:15px;" />
+  <img src="https://m.media-amazon.com/images/S/sash/ydDD9hnRfziI$y7.png" width="120" style="margin-right:15px;" />
+  <img src="https://m.media-amazon.com/images/S/sash/x6ok$LYiGGUKJXl.png" width="120" style="margin-right:15px;" />
   <img src="https://m.media-amazon.com/images/S/sash/MAbi1rCjQI9H2y0.png" width="120" />
 </p>
 
@@ -117,6 +117,10 @@ The goal of this project was to replicate a complex, real-world e-commerce inter
 
 * Used `justify-content` and `align-items` effectively
 * Applied `flex-wrap: wrap` to prevent content overflow, especially for images
+
+<p align="center">
+  <img src="https://i.sstatic.net/yedYz.png" height="300" width="400"/>
+</p>
 
 ---
 
