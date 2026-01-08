@@ -1,0 +1,72 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.main{
+    height: 100vh;
+    background-image: url("assets/images/bg.jpg");
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+}
+.nav{
+    height: 15vh;
+    max-width: 68vw;
+    margin: auto;
+    border: 1.5px solid white;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.netflix-logo{
+    border: 1.5px solid white;
+    width: 148px;
+    height: 40px;
+}
+.netflix-logo img{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+.button{
+    position: relative;
+    z-index: 10;
+    border: 1.5px solid white;
+    display: flex;
+    gap: 15px;
+}
+.user-choice{
+    min-width: 34px;
+    display: flex;
+    align-items: center;
+}
+.lang-logo{
+    background-image: url('assets/images/lang-logo.svg');
+    height: 16px;
+    width: 16px;
+    border: 1.5px solid white;
+}
+.lang-select{
+    appearance: none;
+}
+.select-menu-arrow{
+    background-image: url('assets/images/select-menu-arrow.svg');
+    height: 16px;
+    width: 16px;
+    border: 1.5px solid white;
+}
+.main .hero{
+    height: 100vh;
+    width: 100%;
+    opacity: 0.44;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
