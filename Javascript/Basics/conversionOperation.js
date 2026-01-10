@@ -27,3 +27,12 @@ let convertedString = String(num)
 console.log(typeof num);
 console.log(typeof convertedString);
 
+//*************Operations************************
+
+let value = 3
+console.log(-value);
+// basic concatenation  of strings using '+'
+console.log("1" +2 + 2); //=> 122
+console.log(1 + 2 + "2");//=> 32
+//These conversion depends on the guidelines given by Echma script
+/* Either use parenthesis for operation seperation */
