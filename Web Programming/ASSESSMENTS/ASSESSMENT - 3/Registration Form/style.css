@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+header{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.logo-container{
+    height: 40px;
+    width: 40px;
+}
+.logo-container img{
+    height: 100%;
+    width: 100%;
+    filter: invert(1);
+}
+main{
+    margin: 10px 10px;
+}
+.form{
+    font-size: 1.2rem;
+}
+.requirements{
+    background-color: lightblue;
+    text-align: right;
+}
