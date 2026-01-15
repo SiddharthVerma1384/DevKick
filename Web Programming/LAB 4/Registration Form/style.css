@@ -9,7 +9,7 @@ html,body{
     width: 100%;
 }
 header{
-    height: 60px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,16 +17,15 @@ header{
     padding-right: 10px;
 }
 .logo-container{
-    height: 40px;
-    width: 40px;
+    height: 80px;
+    width: 275px;
 }
 .logo-container img{
     height: 100%;
     width: 100%;
-    filter: invert(1);
 }
 main{
-    margin: 10px 10px;
+    margin: 0px 10px;
 }
 .form{
     font-size: 1.2rem;
