@@ -36,7 +36,7 @@ function addone(num){
 
 /* This concept will be used in hoisting , execution concept.... */
 
-console.log(addTwo(5)) // cannot be executed as function is declared inside a variable 
+// console.log(addTwo(5)) // cannot be executed as function is declared inside a variable 
 const addTwo /* Expression */ = function(num){
     return num + 2
 }
