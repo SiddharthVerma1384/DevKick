@@ -551,7 +551,6 @@ html,body{
     height: 100px;
     width: 45px;
     background-color: #fff;
-    border: 1.5px solid violet;
     opacity: 0.5;
     display: flex;
     justify-content: center;
@@ -562,7 +561,6 @@ html,body{
     height: 100px;
     width: 45px;
     background-color: #fff;
-    border: 1.5px solid violet;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -590,14 +588,12 @@ html,body{
 }
 .long-product-card-list{
     display: flex;
-    border: 1.5px solid violet;
 }
 .long-product-card-item{
     height: 180px;
     width: 270px;
     overflow: hidden;
     margin: 10px;
-    border: 1.5px solid black;
 }
 .long-product-card-item img{
     vertical-align: top;
