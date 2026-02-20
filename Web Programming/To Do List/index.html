@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-do-list</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="header">
+    <h1>Tasks To Do</h1>
+    <div id="completedCount">Completed: 0</div>
+  </div>
+
+  <!-- MAIN TASK CONTAINER -->
+  <div id="taskContainer"></div>
+
+  <!-- INPUT SECTION -->
+  <div class="input-section">
+
+    <input type="text" id="taskInput" placeholder="Enter task" />
+
+    <!-- START TIME -->
+    <div class="time-group">
+      <label>Start:</label>
+      <select id="startHour"><option value="">HH</option></select>
+      <select id="startMin"><option value="">MM</option></select>
+      <select id="startAmPm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+    </div>
+
+    <!-- END TIME -->
+    <div class="time-group">
+      <label>End:</label>
+      <select id="endHour"><option value="">HH</option></select>
+      <select id="endMin"><option value="">MM</option></select>
+      <select id="endAmPm">
+        <option>AM</option>
+        <option>PM</option>
+      </select>
+    </div>
+
+    <button id="addTaskBtn">Add Task</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dev Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-symbols"></div>
+
+  <!-- Header -->
+  <header class="glass header">
+    <h1>Quiz</h1>
+    <div class="timer-box">
+      ⏰ <span id="timer">01:00</span>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- Question -->
+    <div class="glass question-container">
+      <div id="questionArea"></div>
+
+      <div class="nav-buttons">
+        <button id="prevBtn" class="circle-btn">⬅</button>
+        <button id="nextBtn" class="circle-btn">➡</button>
+      </div>
+
+      <button id="submitQuestion" class="glass btn-3d">
+        Submit Question
+      </button>
+    </div>
+
+    <!-- Side -->
+    <div class="glass side-panel">
+      <div class="stats">
+        Attempted: <span id="attempted">0</span><br />
+        Left: <span id="left">0</span>
+      </div>
+
+      <hr />
+
+      <div id="questionNumbers" class="q-numbers"></div>
+
+      <button id="finalSubmit" class="glass btn-3d primary">
+        Final Submit
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="glass modal-content" id="modalContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

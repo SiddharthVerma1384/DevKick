@@ -1,0 +1,125 @@
+/* NOTEBOOK BACKGROUND */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 28px,
+      rgba(0, 120, 255, 0.25) 31px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 248, 200, 0.95),
+      rgba(245, 235, 180, 0.95)
+    );
+
+  background-attachment: fixed;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+#completedCount {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* MAIN TASK AREA */
+#taskContainer {
+  width: 90%;
+  min-height: 350px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* TASK CARD */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  transition: 0.25s ease;
+
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.35);
+  border: 2px solid transparent;
+}
+
+.task:hover {
+  border: 2px solid rgba(0, 120, 255, 0.5);
+}
+
+/* BUTTON GROUP */
+.task-buttons button {
+  margin-left: 6px;
+  cursor: pointer;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+/* INPUT SECTION */
+.input-section {
+  width: 90%;
+  margin: 25px auto;
+  padding: 15px;
+  border-radius: 18px;
+
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.input-section input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+/* TIME GROUP */
+.time-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 10px 6px 0;
+}
+
+.time-group label {
+  font-weight: 600;
+}
+
+.time-group select {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.8);
+  cursor: pointer;
+}
+
+/* STATUS COLORS */
+.completed {
+  background: rgba(144, 238, 144, 0.5);
+}
+
+.rejected {
+  background: rgba(255, 182, 193, 0.5);
+}
