@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li=document.createElement('li');
+        li.innerHTML= `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addLanguage("Python")
+    addLanguage("Typescript")
+
+    function addOptiLanguage(langName){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("GoLang")
+
+    //Edit
+    const secondLang=document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "Mojo"
+    const newli=document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    //edit
+    // const firstLang = document.querySelector('li:nth-child(1)')
+    // const existLang = document.querySelector('li:nth-child(3)')
+    // // const newLang = document.createElement('li')
+    // // newLang.textContent = "Typescript"
+    // firstLang.replaceWith(existLang)
+
+/*
+
+Since in DOM nodes cannot exist in two places , thus to replace the existing element , new element 
+has to be created ....it cannot be done using the existing node as the existing node is shifted from
+its position and get to the place of the targeted node and that target node gets removed
+
+*/
+
+
+//remove 
+const lastLang = document.querySelector('li:last-child')
+// console.log(lastLang);
+lastLang.remove()
+
+</script>
+</html>
