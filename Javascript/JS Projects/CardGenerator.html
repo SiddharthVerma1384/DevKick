@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+</head>
+<style>
+    #card-container{
+        border-radius: 0px 60px;
+        background: #e0e0e0;
+        box-shadow: 
+            8px 8px 15px #babecc,
+            -8px -8px 15px #ffffff;
+        height: 30rem;
+        width: 40rem;
+        border: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #card{
+        position: relative;
+        border-radius: 0px 60px;
+        height: 80%;
+        width: 100%;
+        /* overflow: hidden; */
+    }
+    #card img{
+        border-radius: 0px 60px;
+    }
+</style>
+<body style="background-color: #212121;">
+    <div id="card-container">
+        <div id="card"></div>
+    </div>
+
+    <button>Fetch Data</button>    
+</body>
+<script>
+    const requestUrl  = "https://api.github.com/users/SiddharthVerma1384"
+    const xhr = new XMLHttpRequest();
+
+    document.querySelector('button').addEventListener('click',function(){
+        xhr.open('GET',requestUrl)
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                const data = JSON.parse(this.responseText)
+                const displayCard = document.querySelector('#card')
+
+                const img = document.createElement("img");
+                img.src = data.avatar_url;
+                img.alt = "GitHub Profile";
+                img.style.height = "100%" ;
+                img.style.width = "100%" ;
+                img.style.objectFit = "contain";
+                displayCard.appendChild(img);
+
+                const p = document.createElement("p");
+                p.innerHTML = `Followers :- ${data.followers}`;
+                displayCard.appendChild(p);
+            }
+        }
+        xhr.send();
+    })
+</script>
+</html>
