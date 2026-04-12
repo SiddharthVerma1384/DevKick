@@ -1,0 +1,125 @@
+[{
+  "_id": {
+    "$oid": "69da9d49df90facc483682d8"
+  },
+  "title": "Atomic Habits",
+  "author": "James Clear",
+  "rating": 5,
+  "genre": [
+    "Self-help",
+    "Productivity"
+  ],
+  "pages": 320,
+  "reviews": [
+    {
+      "user": "Rahul",
+      "comment": "Life changing",
+      "stars": 5
+    },
+    {
+      "user": "Priya",
+      "comment": "Very practical",
+      "stars": 4
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69da9d49df90facc483682d9"
+  },
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "rating": 5,
+  "genre": [
+    "Programming",
+    "Software"
+  ],
+  "pages": 464,
+  "reviews": [
+    {
+      "user": "Siddharth",
+      "comment": "Must read for devs",
+      "stars": 5
+    },
+    {
+      "user": "Amit",
+      "comment": "Deep concepts",
+      "stars": 4
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69da9d49df90facc483682da"
+  },
+  "title": "The Alchemist",
+  "author": "Paulo Coelho",
+  "rating": 4,
+  "genre": [
+    "Fiction",
+    "Philosophy"
+  ],
+  "pages": 208,
+  "reviews": [
+    {
+      "user": "Neha",
+      "comment": "Inspirational",
+      "stars": 4
+    },
+    {
+      "user": "Karan",
+      "comment": "Simple but deep",
+      "stars": 4
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69da9d49df90facc483682db"
+  },
+  "title": "Rich Dad Poor Dad",
+  "author": "Robert Kiyosaki",
+  "rating": 4,
+  "genre": [
+    "Finance",
+    "Self-help"
+  ],
+  "pages": 336,
+  "reviews": [
+    {
+      "user": "Vikram",
+      "comment": "Good financial basics",
+      "stars": 4
+    },
+    {
+      "user": "Anjali",
+      "comment": "Eye opening",
+      "stars": 5
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69da9d49df90facc483682dc"
+  },
+  "title": "Harry Potter and the Chamber of Secrets",
+  "author": "J.K. Rowling",
+  "rating": 5,
+  "genre": [
+    "Fantasy",
+    "Adventure"
+  ],
+  "pages": 341,
+  "reviews": [
+    {
+      "user": "Riya",
+      "comment": "Magical world",
+      "stars": 5
+    },
+    {
+      "user": "Arjun",
+      "comment": "Very engaging",
+      "stars": 5
+    }
+  ]
+}]
