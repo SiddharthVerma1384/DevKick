@@ -32,6 +32,7 @@ function App() {
             onRemove={removeFromCart}
             total={total}
           />
+          
         </main>
 
      </div>
